@@ -31,10 +31,10 @@ func NewCampaign(name string, content string, emails []string) (*Campaign, error
 		CreateOn: time.Now(),
 		Contacts: contacts,
 	}
-
 	err := internalerrors.ValidateStruct(campaign)
 	if err == nil {
 		return campaign, nil
 	}
+	println(err.Error())
 	return campaign, err
 }

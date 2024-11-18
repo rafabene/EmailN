@@ -10,9 +10,11 @@ import (
 func ValidateStruct(obj interface{}) error {
 	validate := validator.New()
 	err := validate.Struct(obj)
+
 	if err == nil {
 		return nil
 	}
+	println(err.Error())
 	validationErrors := err.(validator.ValidationErrors)
 	validationError := validationErrors[0]
 

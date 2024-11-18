@@ -15,11 +15,11 @@ func (s *Service) Create(newCampaignDTO contract.NewCampaignDTO) (string, error)
 	if err != nil {
 		return "", err
 	}
+
 	err = s.Repository.Save(campaign)
 	if err != nil {
 		return "", internalerrors.ErrInternal
 	}
-
 	return campaign.ID, nil
 
 }
